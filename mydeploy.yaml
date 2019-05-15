@@ -1,0 +1,18 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: dotnet
+spec:
+  replicas: 1
+  minReadySeconds: 20
+  template:
+    metadata:
+      labels:
+        app: dotnet
+    spec:
+      containers:
+        - image: "innovatecloud.dst.ibm.com:8500/nextgen-tooling/dotnet:dotnet_latest"
+          imagePullPolicy: Always
+          name: dotnet
+          ports:
+            - containerPort: 80
